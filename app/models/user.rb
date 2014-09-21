@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
                            uniqueness: true,
                            format: {
                              with: /\A[a-zA-Z\-\_]+\Z/,
-                             message: "Must be formatted correctly."
+                             message: "Shame on you,format correctly!"
                            }
 
   def full_name
