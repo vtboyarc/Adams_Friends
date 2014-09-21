@@ -9,13 +9,20 @@ class User < ActiveRecord::Base
   has_many :friends, through: :user_friendships
 
   validates :first_name, presence: true
+ 
   validates :last_name, presence: true
+ 
   validates :profile_name, presence: true, 
                            uniqueness: true,
                            format: {
                              with: /\A[a-zA-Z\-\_]+\Z/,
                              message: "Shame on you,format correctly!"
                            }
+                           
+  has_many :statuses
+  has_many :user_friendships
+  has_many :friends, through: :user_friendships
+                           
 
   def full_name
   	first_name + ' ' + last_name
